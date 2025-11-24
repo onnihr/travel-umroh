@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Kautsar Travel - Umroh & Wisata Halal</title>
+    <!-- Memuat Tailwind CSS dari CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Menggunakan font Inter secara default */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        /* Custom color palette */
+        .bg-primary { background-color: #047857; } /* Hijau Emerald */
+        .text-primary { color: #047857; }
+        .hover-bg-primary:hover { background-color: #059669; }
+        .bg-secondary { background-color: #FBBF24; } /* Kuning Cerah */
+        .text-secondary { color: #FBBF24; }
+        
+        /* Box Shadow for depth */
+        .card-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        /* Fade in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        /* Hide Scrollbar for Testimonial Carousel but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="bg-white card-shadow sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <span class="text-2xl font-bold text-primary">Al-Kautsar Travel</span>
+                </div>
+                <!-- Menu Desktop -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#beranda" class="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition duration-150">Beranda</a>
+                        <a href="#paket" class="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition duration-150">Semua Paket</a>
+                        <a href="#fleksibel" class="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition duration-150">Rancang Paket</a>
+                        <a href="#testimoni" class="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition duration-150">Testimoni</a>
+                        <a href="#kontak" class="bg-secondary text-gray-900 hover:bg-yellow-400 px-4 py-2 rounded-full text-sm font-semibold transition duration-150">Hubungi Kami</a>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-primary hover:text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white transition duration-150" aria-controls="mobile-menu" aria-expanded="false">
+                        <!-- Heroicon menu -->
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                        <!-- Heroicon close (hidden by default) -->
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#beranda" class="text-gray-700 hover:bg-primary hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-150">Beranda</a>
+                <a href="#paket" class="text-gray-700 hover:bg-primary hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-150">Semua Paket</a>
+                <a href="#fleksibel" class="text-gray-700 hover:bg-primary hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-150">Rancang Paket</a>
+                <a href="#testimoni" class="text-gray-700 hover:bg-primary hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-150">Testimoni</a>
+                <a href="#kontak" class="bg-secondary text-gray-900 hover:bg-yellow-400 block px-3 py-2 rounded-md text-base font-semibold text-center mt-2 transition duration-150">Hubungi Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- 1. Hero Section (Updated with Real Stock Photos) -->
+        <section id="beranda" class="relative bg-primary text-white pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden">
+            <!-- Background Slideshow Container -->
+            <div id="hero-slideshow" class="absolute inset-0 z-0">
+                <!-- Slide 1: Mekkah/Ka'bah (Real Image) -->
+                <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-30" style="background-image: url('https://images.unsplash.com/photo-1694112901375-1ad46056820d?auto=format&fit=crop&w=1200&q=80');"></div>
+                <!-- Slide 2: Turkey/Cappadocia (Real Image) -->
+                <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('https://images.unsplash.com/photo-1641128324972-af3212f0f6bd?auto=format&fit=crop&w=1200&q=80');"></div>
+                <!-- Slide 3: Europe/Swiss Alps (Real Image) -->
+                <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80');"></div>
+                <!-- Slide 4: Dubai/Architecture (Real Image) -->
+                <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1200&q=80');"></div>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 leading-tight drop-shadow-md">
+                    Wujudkan Impian Suci Anda
+                </h1>
+                <p class="text-lg sm:text-xl lg:text-2xl font-light mb-8 max-w-3xl mx-auto drop-shadow-sm">
+                    Perjalanan Umroh Nyaman dan Wisata Halal ke Destinasi Paling Menakjubkan di Dunia. Jadwal Keberangkatan Tahun 2026 Kini Tersedia.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#paket" class="bg-secondary text-gray-900 hover:bg-yellow-400 px-8 py-3 rounded-full text-lg font-bold transition duration-300 transform hover:scale-105 card-shadow">
+                        Lihat Paket Populer
+                    </a>
+                    <a href="#fleksibel" class="bg-white text-primary hover:bg-gray-100 border-2 border-white px-8 py-3 rounded-full text-lg font-bold transition duration-300 transform hover:scale-105 card-shadow">
+                        Rencanakan Sendiri
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Section Keunggulan -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">Mengapa Memilih Al-Kautsar Travel?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Keunggulan 1: Fleksibilitas -->
+                    <div class="p-6 bg-gray-50 rounded-xl text-center card-shadow">
+                        <div class="text-primary mb-4">
+                            <!-- Icon Fleksibilitas -->
+                            <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 100 4m0-4v2m0 0v2m0 0h2m-2 0h-2M4 12h16M4 18h16M11 12h2m-2 0h-2m10 6a2 2 0 100 4m0-4v2m0 0v2m0 0h2m-2 0h-2M4 6a2 2 0 100 4m0-4v2m0 0v2m0 0h2m-2 0h-2"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Paket Sangat Fleksibel</h3>
+                        <p class="text-gray-600">Pilih sendiri durasi, kelas hotel bintang 4/5, maskapai, dan jumlah peserta untuk grup privat Anda.</p>
+                    </div>
+                    <!-- Keunggulan 2: Halal Terjamin -->
+                    <div class="p-6 bg-gray-50 rounded-xl text-center card-shadow">
+                        <div class="text-primary mb-4">
+                            <!-- Icon Halal -->
+                            <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2c-2.307 0-4.524.606-6.418 1.776M14.996 5.5A11.93 11.93 0 0012 5.5M12 22a10 10 0 100-20 10 10 0 000 20z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Destinasi Halal Pilihan</h3>
+                        <p class="text-gray-600">Semua rute wisata terjamin halal, termasuk makanan, ibadah, dan kegiatan yang sesuai syariat.</p>
+                    </div>
+                    <!-- Keunggulan 3: Keberangkatan Jakarta -->
+                    <div class="p-6 bg-gray-50 rounded-xl text-center card-shadow">
+                        <div class="text-primary mb-4">
+                            <!-- Icon Keberangkatan -->
+                            <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4h-3M6 18a2 2 0 100-4m0 4v-2m0 2h3M18 18a2 2 0 100-4m0 4v-2m0 2h-3"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Keberangkatan Jakarta</h3>
+                        <p class="text-gray-600">Fokus melayani keberangkatan langsung dari Bandara Soekarno-Hatta (CGK).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Section Paket Populer -->
+        <section id="paket" class="py-16 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-8 md:mb-12">
+                    <div class="text-center md:text-left w-full md:w-auto">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-2">Jelajahi Pilihan Paket 2026</h2>
+                        <p class="text-gray-600">Jadwal terbaru untuk Umroh dan Wisata Halal.</p>
+                    </div>
+                    <!-- Link Lihat Semua (Desktop) -->
+                    <button id="load-more-btn-top" class="hidden md:inline-block text-primary font-bold hover:text-green-700 transition flex items-center mt-4 md:mt-0">
+                        Lihat Semua Paket <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </button>
+                </div>
+
+                <!-- Container Paket (Data akan di-render via JS) -->
+                <div id="paket-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Paket cards will be injected here by JavaScript -->
+                </div>
+
+                <!-- Tombol Load More (Mobile/Bottom) -->
+                <div class="mt-12 text-center">
+                    <button id="load-more-btn-bottom" class="bg-white text-primary border-2 border-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full text-lg font-bold transition duration-300 transform hover:scale-105 card-shadow w-full md:w-auto">
+                        Lihat Semua Paket (12 Pilihan)
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Section Pemesanan Fleksibel (Simulasi) -->
+        <section id="fleksibel" class="py-16 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-4 text-gray-900">Rancang Paket Group Privat Anda</h2>
+                <p class="text-center text-gray-600 mb-10">Sesuaikan destinasi, jadwal, maskapai, dan jumlah peserta (Min. 5 Pax) untuk perjalanan impian Anda di tahun 2026.</p>
+
+                <div class="bg-gray-50 p-6 sm:p-8 rounded-xl card-shadow border border-gray-100">
+                    
+                    <!-- Form Fleksibel -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        
+                        <!-- 1. Pilihan Destinasi -->
+                        <div class="lg:col-span-1">
+                            <label for="destinasi" class="block text-sm font-medium text-gray-700 mb-1">Destinasi Utama</label>
+                            <select id="destinasi" class="mt-1 block w-full pl-3 pr-10 py-3 text-base border-gray-300 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md transition duration-150">
+                                <option value="" disabled selected>-- Pilih Destinasi --</option>
+                                <optgroup label="Umroh & Tanah Suci">
+                                    <option value="umroh">Umroh Reguler (Mekkah & Madinah)</option>
+                                    <option value="umroh_turki">Umroh Plus Turki (Cappadocia/Istanbul)</option>
+                                    <option value="umroh_dubai">Umroh Plus Dubai</option>
+                                    <option value="umroh_aqsa">Umroh Plus Aqsa/Jordan/Mesir</option>
+                                </optgroup>
+                                <optgroup label="Wisata Halal Asia & Timur Tengah">
+                                    <option value="halal_uzbek">Wisata Halal Uzbekistan</option>
+                                    <option value="halal_dubai">Wisata Halal Dubai & Abu Dhabi</option>
+                                    <option value="halal_mesir">Wisata Halal Mesir Kuno</option>
+                                </optgroup>
+                                <optgroup label="Wisata Halal Eropa">
+                                    <option value="halal_spanyol">Wisata Halal Spanyol (Andalusia)</option>
+                                    <option value="halal_eropa">Wisata Halal Eropa Barat (Perancis/Swiss)</option>
+                                    <option value="halal_balkan">Wisata Halal Balkan</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                         <!-- 2. Pilihan Durasi -->
+                         <div>
+                            <label for="durasi" class="block text-sm font-medium text-gray-700 mb-1">Durasi Hari</label>
+                            <select id="durasi" class="mt-1 block w-full pl-3 pr-10 py-3 text-base border-gray-300 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md transition duration-150">
+                                <option value="9">9 Hari</option>
+                                <option value="10">10 Hari</option>
+                                <option value="12">12 Hari</option>
+                                <option value="14">14 Hari</option>
+                                <option value="21">21+ Hari (Long Stay)</option>
+                            </select>
+                        </div>
+
+                        <!-- 3. Tanggal Keberangkatan -->
+                        <div>
+                            <label for="tgl-berangkat" class="block text-sm font-medium text-gray-700 mb-1">Tanggal Keberangkatan</label>
+                            <!-- Menggunakan type text lalu berubah jadi date saat focus agar placeholder bisa muncul -->
+                            <input type="text" id="tgl-berangkat" placeholder="dd-mm-yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" class="mt-1 block w-full pl-3 pr-3 py-3 text-base border-gray-300 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md transition duration-150">
+                        </div>
+
+                        <!-- 4. Tanggal Kembali (Autofill) -->
+                        <div>
+                            <label for="tgl-kembali" class="block text-sm font-medium text-gray-700 mb-1">Tanggal Kembali (Estimasi)</label>
+                            <input type="text" id="tgl-kembali" readonly class="mt-1 block w-full pl-3 pr-3 py-3 text-base border-gray-300 bg-gray-100 text-gray-500 cursor-not-allowed sm:text-sm rounded-md focus:outline-none" placeholder="Otomatis terisi...">
+                        </div>
+
+                        <!-- 5. Jumlah Peserta (Dipindah ke sini) -->
+                        <div>
+                            <label for="peserta" class="block text-sm font-medium text-gray-700 mb-1">Jumlah Peserta (Min. 5)</label>
+                            <div class="relative rounded-md shadow-sm">
+                                <input type="number" id="peserta" name="peserta" min="5" value="5" class="focus:ring-primary focus:border-primary block w-full pl-3 py-3 sm:text-sm border-gray-300 rounded-md" placeholder="Min. 5 Orang">
+                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                    <span class="text-gray-500 sm:text-sm">Pax</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 6. Pilihan Maskapai (Dinamis) -->
+                        <div>
+                            <label for="maskapai" class="block text-sm font-medium text-gray-700 mb-1">Pilihan Maskapai</label>
+                            <select id="maskapai" disabled class="mt-1 block w-full pl-3 pr-10 py-3 text-base border-gray-300 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md transition duration-150 bg-gray-50">
+                                <option value="">-- Pilih Destinasi Dulu --</option>
+                            </select>
+                        </div>
+
+                        <!-- 7. Kelas Hotel -->
+                        <div>
+                            <label for="hotel" class="block text-sm font-medium text-gray-700 mb-1">Kelas Hotel</label>
+                            <select id="hotel" class="mt-1 block w-full pl-3 pr-10 py-3 text-base border-gray-300 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md transition duration-150">
+                                <option value="4">Bintang 4 (Standard)</option>
+                                <option value="5">Bintang 5 (Premium)</option>
+                                <option value="5p">Bintang 5+ (Luxury/Depan Masjid)</option>
+                            </select>
+                        </div>
+
+                        <!-- 8. Kelas Kabin -->
+                        <div>
+                            <label for="kabin" class="block text-sm font-medium text-gray-700 mb-1">Kelas Kabin Pesawat</label>
+                            <select id="kabin" class="mt-1 block w-full pl-3 pr-10 py-3 text-base border-gray-300 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md transition duration-150">
+                                <option value="economy">Economy Class</option>
+                                <option value="business">Business Class</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    
+                    <!-- Tombol Cek Harga -->
+                    <button id="cek-harga-btn" class="mt-8 w-full bg-primary text-white hover-bg-primary py-3 rounded-xl text-lg font-bold transition duration-300 transform hover:scale-[1.01] card-shadow flex justify-center items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        Hitung Estimasi Harga Group
+                    </button>
+
+                    <!-- Hasil Estimasi -->
+                    <div id="estimasi-result" class="mt-6 p-6 text-center rounded-lg border-2 border-primary bg-green-50 hidden animate-fade-in">
+                        <h3 class="text-lg font-semibold text-gray-800">Estimasi Proposal Penawaran</h3>
+                        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-left bg-white p-4 rounded shadow-sm">
+                            <div>
+                                <p class="text-sm text-gray-500">Destinasi & Durasi:</p>
+                                <p class="font-bold text-gray-900" id="res-destinasi">-</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Jadwal Perjalanan:</p>
+                                <p class="font-bold text-gray-900" id="res-tanggal">-</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Maskapai & Hotel:</p>
+                                <p class="font-bold text-gray-900" id="res-fasilitas">-</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Jumlah Peserta:</p>
+                                <p class="font-bold text-gray-900" id="res-peserta">-</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 border-t border-gray-200 pt-4">
+                            <p class="text-gray-600 mb-1">Estimasi Harga Per Orang:</p>
+                            <p id="estimasi-price" class="text-4xl font-extrabold text-primary"></p>
+                            <p class="text-xs text-gray-500 mt-2">*Harga bersifat estimasi dan dapat berubah sewaktu-waktu.</p>
+                        </div>
+                        <button class="mt-4 bg-secondary text-gray-900 px-6 py-2 rounded-full font-bold text-sm hover:bg-yellow-400">Unduh Proposal PDF</button>
+                    </div>
+
+                    <!-- Pesan Notifikasi (untuk pengganti alert) -->
+                    <div id="notif-box" class="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded hidden" role="alert">
+                        <!-- Pesan akan diisi di sini -->
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Testimoni Section (Updated Carousel) -->
+        <section id="testimoni" class="py-16 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <h2 class="text-3xl font-bold text-center mb-10 text-gray-900">Apa Kata Jamaah Kami?</h2>
+                
+                <!-- Navigation Buttons -->
+                <div class="absolute top-1/2 left-2 md:left-0 transform -translate-y-1/2 z-10">
+                    <button id="prev-testimoni" class="bg-white hover:bg-gray-100 text-primary p-2 rounded-full shadow-lg focus:outline-none transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                </div>
+                <div class="absolute top-1/2 right-2 md:right-0 transform -translate-y-1/2 z-10">
+                    <button id="next-testimoni" class="bg-white hover:bg-gray-100 text-primary p-2 rounded-full shadow-lg focus:outline-none transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+
+                <!-- Scrollable Container -->
+                <!-- Updated width logic for cards: w-full for mobile, w-[calc(50%-12px)] for md upwards to show 2 at a time -->
+                <div id="testimoni-scroll" class="flex overflow-x-auto snap-x snap-mandatory space-x-6 pb-8 px-4 no-scrollbar scroll-smooth">
+                    
+                    <!-- Testimoni 1 -->
+                    <div class="w-full md:w-[calc(50%-12px)] bg-white p-6 rounded-xl card-shadow snap-start flex-shrink-0 flex flex-col">
+                        <p class="italic text-gray-700 mb-4 flex-grow">"Pengalaman Umroh Bintang 5 yang luar biasa. Hotel dekat, makanan terjamin halal, dan pembimbingnya sabar. Sangat direkomendasikan untuk keluarga!"</p>
+                        <div class="mt-auto">
+                            <div class="font-semibold text-primary">Ibu Rina, Jakarta</div>
+                            <div class="text-secondary text-sm">Umroh Premium, Maret 2025</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimoni 2 -->
+                    <div class="w-full md:w-[calc(50%-12px)] bg-white p-6 rounded-xl card-shadow snap-start flex-shrink-0 flex flex-col">
+                        <p class="italic text-gray-700 mb-4 flex-grow">"Tour Halal ke Eropa Barat sangat berkesan. Mereka benar-benar memikirkan detail kebutuhan ibadah kami. Tidak perlu khawatir mencari makanan halal."</p>
+                        <div class="mt-auto">
+                            <div class="font-semibold text-primary">Bapak Hadi, Tangerang</div>
+                            <div class="text-secondary text-sm">Halal Tour Eropa, Juli 2025</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimoni 3 -->
+                    <div class="w-full md:w-[calc(50%-12px)] bg-white p-6 rounded-xl card-shadow snap-start flex-shrink-0 flex flex-col">
+                        <p class="italic text-gray-700 mb-4 flex-grow">"Fitur Rancang Paket sangat membantu komunitas pengajian kami untuk berangkat bersama dengan budget yang pas."</p>
+                        <div class="mt-auto">
+                            <div class="font-semibold text-primary">Ust. Fikri, Bekasi</div>
+                            <div class="text-secondary text-sm">Umroh Group Privat, Mei 2025</div>
+                        </div>
+                    </div>
+
+                    <!-- Testimoni 4 (Baru) -->
+                    <div class="w-full md:w-[calc(50%-12px)] bg-white p-6 rounded-xl card-shadow snap-start flex-shrink-0 flex flex-col">
+                        <p class="italic text-gray-700 mb-4 flex-grow">"Perjalanan ke Uzbekistan bersama Al-Kautsar sangat membuka wawasan sejarah Islam. Pemandunya sangat berpengetahuan luas."</p>
+                        <div class="mt-auto">
+                            <div class="font-semibold text-primary">Ibu Sarah, Bandung</div>
+                            <div class="text-secondary text-sm">Halal Tour Uzbekistan, Juni 2025</div>
+                        </div>
+                    </div>
+
+                    <!-- Testimoni 5 (Baru) -->
+                    <div class="w-full md:w-[calc(50%-12px)] bg-white p-6 rounded-xl card-shadow snap-start flex-shrink-0 flex flex-col">
+                        <p class="italic text-gray-700 mb-4 flex-grow">"Alhamdulillah, Umroh Plus Turki berjalan lancar. Pelayanan maskapai dan handling di bandara sangat profesional. Terima kasih!"</p>
+                        <div class="mt-auto">
+                            <div class="font-semibold text-primary">Kel. Bapak Budi, Surabaya</div>
+                            <div class="text-secondary text-sm">Umroh Plus Turki, April 2025</div>
+                        </div>
+                    </div>
+
+                    <!-- Testimoni 6 (Baru) -->
+                    <div class="w-full md:w-[calc(50%-12px)] bg-white p-6 rounded-xl card-shadow snap-start flex-shrink-0 flex flex-col">
+                        <p class="italic text-gray-700 mb-4 flex-grow">"Saya suka fleksibilitas paketnya. Bisa pilih hotel bintang 4 tapi pesawat business class. Sangat mengakomodir keinginan orang tua saya."</p>
+                        <div class="mt-auto">
+                            <div class="font-semibold text-primary">Sdr. Dimas, Jakarta Selatan</div>
+                            <div class="text-secondary text-sm">Custom Umroh, Agustus 2025</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. CTA Bawah -->
+        <section id="kontak" class="py-16 bg-primary">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Siap Merencanakan Perjalanan Anda?</h2>
+                <p class="text-xl mb-8 font-light">Hubungi kami hari ini dan dapatkan konsultasi paket gratis!</p>
+                <a href="mailto:info@alihsantravel.co.id" class="bg-secondary text-gray-900 hover:bg-yellow-400 px-10 py-4 rounded-full text-xl font-bold transition duration-300 transform hover:scale-105 card-shadow inline-block">
+                    Kirim Pesan ke Kami
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Kolom 1: Logo & Deskripsi -->
+                <div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Al-Kautsar Travel</h3>
+                    <p class="text-sm text-gray-400">Penyedia layanan Umroh dan Wisata Halal fleksibel, melayani keberangkatan dari seluruh Indonesia, khususnya Jakarta.</p>
+                </div>
+                <!-- Kolom 2: Tautan Cepat -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Tautan</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#beranda" class="hover:text-primary transition duration-150">Beranda</a></li>
+                        <li><a href="#paket" class="hover:text-primary transition duration-150">Paket Populer</a></li>
+                        <li><a href="#fleksibel" class="hover:text-primary transition duration-150">Rancang Paket</a></li>
+                        <li><a href="#" class="hover:text-primary transition duration-150">FAQ</a></li>
+                    </ul>
+                </div>
+                <!-- Kolom 3: Kontak -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Kontak</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="tel:+628123456789" class="hover:text-primary transition duration-150">(+62) 812-3456-789 (WA/Telp)</a></li>
+                        <li><a href="mailto:info@alihsantravel.co.id" class="hover:text-primary transition duration-150">info@alkautsartravel.co.id</a></li>
+                        <li>Kantor Pusat: Jakarta Selatan, Indonesia</li>
+                    </ul>
+                </div>
+                <!-- Kolom 4: Sosial Media -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Ikuti Kami</h4>
+                    <!-- Placeholder Icons -->
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-primary transition duration-150">
+                            <!-- Facebook Icon -->
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.202 0-4.192 1.58-4.192 4.615v2.385z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition duration-150">
+                            <!-- Instagram Icon -->
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c2.757 0 3.176.012 4.288.062 1.056.048 1.79.23 2.45.503.738.303 1.25.727 1.768 1.245.518.517.942 1.03.76 1.768.273.66.455 1.394.503 2.45.05 1.112.062 1.531.062 4.288s-.012 3.176-.062 4.288c-.048 1.056-.23 1.79-.503 2.45-.303.738-.727 1.25-1.245 1.768-.517.518-1.03.942-1.768 1.245-.66.273-1.394.455-2.45.503-1.112.05-1.531.062-4.288.062s-3.176-.012-4.288-.062c-1.056-.048-1.79-.23-2.45-.503-.738-.303-1.25-.727-1.768-1.245-.518-.517-.942-1.03-1.245-1.768-.273-.66-.455-1.394-.503-2.45-.05-1.112-.062-1.531-.062-4.288s.012-3.176.062-4.288c.048-1.056.23-1.79.503-2.45.303-.738.727-1.25 1.245-1.768.517-.518 1.03-.942 1.768-1.245.66-.273 1.394-.455 2.45-.503C8.824 2.012 9.243 2 12 2zm0-2c-2.827 0-3.21.01-4.332.062-1.188.056-1.923.235-2.61.508-.755.3-1.37.756-2.022 1.41-.655.655-1.112 1.267-1.41 2.022-.273.687-.452 1.422-.508 2.61C.01 8.79 0 9.173 0 12s.01 3.21.062 4.332c.056 1.188.235 1.923.508 2.61.3.755.756 1.37 1.41 2.022.655.655 1.267 1.112 2.022 1.41.687.273 1.422.452 2.61.508 1.122.052 1.505.062 4.332.062s3.21-.01 4.332-.062c1.188-.056 1.923-.235 2.61-.508.755-.3 1.37-.756 2.022-1.41.655-.655 1.112-1.267-2.022-1.41-.687-.273-1.422-.452-2.61-.508C15.21 0.01 14.827 0 12 0zm0 4.25a7.75 7.75 0 100 15.5 7.75 7.75 0 000-15.5zm0 2.5a5.25 5.25 0 110 10.5 5.25 5.25 0 010-10.5zm0 2.5a2.75 2.75 0 100 5.5 2.75 2.75 0 000-5.5zM17.25 5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-6 text-center text-sm text-gray-500">
+                &copy; 2026 Al-Kautsar Travel. Hak Cipta Dilindungi.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Interaktivitas -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 1. HERO SLIDESHOW LOGIC ---
+            const heroSlides = document.querySelectorAll('#hero-slideshow > div');
+            let currentHeroSlide = 0;
+
+            // Ganti slide setiap 5 detik
+            setInterval(() => {
+                // Sembunyikan slide saat ini (set opacity ke 0)
+                heroSlides[currentHeroSlide].classList.remove('opacity-20');
+                heroSlides[currentHeroSlide].classList.add('opacity-0');
+
+                // Pindah ke slide berikutnya
+                currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+
+                // Tampilkan slide baru (set opacity ke 20/0.2 sesuai style awal)
+                heroSlides[currentHeroSlide].classList.remove('opacity-0');
+                heroSlides[currentHeroSlide].classList.add('opacity-20');
+            }, 5000);
+
+
+            // DATA PAKET 2026 (Updated with Real Images from Unsplash)
+            const packagesData = [
+                {
+                    id: 1,
+                    title: "Umroh Reguler 9 Hari",
+                    image: "https://images.unsplash.com/photo-1694112901375-1ad46056820d?auto=format&fit=crop&w=600&q=80",
+                    badge: "Best Seller",
+                    badgeColor: "bg-secondary text-gray-900",
+                    desc: "Mekkah (4 Malam) & Madinah (3 Malam)",
+                    date: "15 Feb 2026",
+                    returnDate: "23 Feb 2026",
+                    flight: "Saudia Airlines",
+                    hotel: "Bintang 4",
+                    filled: 30,
+                    quota: 45,
+                    price: "28 Jt"
+                },
+                {
+                    id: 2,
+                    title: "Umroh Jumatain 12 Hari",
+                    image: "https://plus.unsplash.com/premium_photo-1678316899655-1d1250141f33?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    badge: "2x Jumat",
+                    badgeColor: "bg-primary text-white",
+                    desc: "Mekkah (6 Malam) & Madinah (4 Malam)",
+                    date: "20 Feb 2026",
+                    returnDate: "03 Mar 2026",
+                    flight: "Garuda Indonesia",
+                    hotel: "Bintang 5",
+                    filled: 25,
+                    quota: 40,
+                    price: "33 Jt"
+                },
+                {
+                    id: 3,
+                    title: "Jejak Rasul: Aqsa, Jordan & Mesir",
+                    image: "https://images.unsplash.com/photo-1615811648503-479d06197ff3?q=80&w=2952&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    badge: "Napak Tilas",
+                    badgeColor: "bg-blue-600 text-white",
+                    desc: "Cairo, Mt. Sinai, Petra, Jerusalem, Amman",
+                    date: "10 Mar 2026",
+                    returnDate: "22 Mar 2026",
+                    flight: "Emirates",
+                    hotel: "Bintang 4/5",
+                    filled: 15,
+                    quota: 30,
+                    price: "38 Jt"
+                },
+                {
+                    id: 4,
+                    title: "Wisata Halal Andalusia (Spanyol)",
+                    image: "https://images.unsplash.com/photo-1546948630-1149ea60dc86?auto=format&fit=crop&w=600&q=80",
+                    badge: "Sejarah Islam",
+                    badgeColor: "bg-purple-600 text-white",
+                    desc: "Madrid, Cordoba, Granada (Alhambra), Barcelona",
+                    date: "05 Apr 2026",
+                    returnDate: "15 Apr 2026",
+                    flight: "Qatar Airways",
+                    hotel: "Bintang 4",
+                    filled: 10,
+                    quota: 25,
+                    price: "35 Jt"
+                },
+                {
+                    id: 5,
+                    title: "Umroh Plus Turki (Cappadocia)",
+                    image: "https://images.unsplash.com/photo-1641128324972-af3212f0f6bd?auto=format&fit=crop&w=600&q=80",
+                    badge: "Favorit Keluarga",
+                    badgeColor: "bg-red-500 text-white",
+                    desc: "Umroh (7 Hari) + Istanbul & Cappadocia (5 Hari)",
+                    date: "12 Mar 2026",
+                    returnDate: "24 Mar 2026",
+                    flight: "Turkish Airlines",
+                    hotel: "Bintang 5",
+                    filled: 38,
+                    quota: 40,
+                    price: "42 Jt"
+                },
+                {
+                    id: 6,
+                    title: "Halal Tour: Uzbekistan",
+                    image: "https://images.unsplash.com/photo-1715540335591-8c7db66f7a41?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    badge: "Jalur Sutra",
+                    badgeColor: "bg-indigo-500 text-white",
+                    desc: "Tashkent, Samarkand, Bukhara (Imam Bukhari)",
+                    date: "01 Mei 2026",
+                    returnDate: "10 Mei 2026",
+                    flight: "Uzbekistan Air",
+                    hotel: "Bintang 4",
+                    filled: 12,
+                    quota: 25,
+                    price: "26 Jt"
+                },
+                {
+                    id: 7,
+                    title: "Eropa Barat Halal (Perancis & Swiss)",
+                    image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80",
+                    badge: "Pemandangan Alam",
+                    badgeColor: "bg-cyan-600 text-white",
+                    desc: "Paris (Eiffel), Zurich, Mt. Titlis, Lucerne",
+                    date: "20 Mei 2026",
+                    returnDate: "30 Mei 2026",
+                    flight: "Etihad",
+                    hotel: "Bintang 4",
+                    filled: 8,
+                    quota: 30,
+                    price: "39 Jt"
+                },
+                {
+                    id: 8,
+                    title: "Pesona Dubai & Abu Dhabi (UEA)",
+                    image: "https://images.unsplash.com/photo-1526495124232-a04e1849168c?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    badge: "City Tour",
+                    badgeColor: "bg-yellow-500 text-white",
+                    desc: "Burj Khalifa, Desert Safari, Grand Mosque",
+                    date: "15 Jan 2026",
+                    returnDate: "21 Jan 2026",
+                    flight: "Emirates",
+                    hotel: "Bintang 5",
+                    filled: 18,
+                    quota: 30,
+                    price: "22 Jt"
+                },
+                {
+                    id: 9,
+                    title: "Wisata Mesir Kuno & Peradaban",
+                    image: "https://images.unsplash.com/photo-1663192365262-ae9f884ac8b6?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    badge: "Eksplorasi",
+                    badgeColor: "bg-orange-700 text-white",
+                    desc: "Cairo, Giza Pyramids, Alexandria, Nile Cruise",
+                    date: "10 Feb 2026",
+                    returnDate: "17 Feb 2026",
+                    flight: "Egypt Air",
+                    hotel: "Bintang 5",
+                    filled: 20,
+                    quota: 30,
+                    price: "24 Jt"
+                },
+                {
+                    id: 10,
+                    title: "Umroh Plus Dubai",
+                    image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=600&q=80",
+                    badge: "Transit Mewah",
+                    badgeColor: "bg-emerald-600 text-white",
+                    desc: "Umroh (9 Hari) + Dubai City Tour (3 Hari)",
+                    date: "25 Feb 2026",
+                    returnDate: "08 Mar 2026",
+                    flight: "Emirates",
+                    hotel: "Bintang 5",
+                    filled: 5,
+                    quota: 40,
+                    price: "36 Jt"
+                },
+                {
+                    id: 11,
+                    title: "Balkan Muslim Tour",
+                    image: "https://plus.unsplash.com/premium_photo-1697730152499-dfb766ea949d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    badge: "Alam & Sejarah",
+                    badgeColor: "bg-teal-600 text-white",
+                    desc: "Bosnia (Mostar), Albania, Macedonia, Montenegro",
+                    date: "15 Apr 2026",
+                    returnDate: "25 Apr 2026",
+                    flight: "Turkish Airlines",
+                    hotel: "Bintang 4",
+                    filled: 10,
+                    quota: 25,
+                    price: "32 Jt"
+                },
+                {
+                    id: 12,
+                    title: "Umroh Akhir Tahun VIP",
+                    image: "https://images.unsplash.com/photo-1565330770968-0240c0046ce3?auto=format&fit=crop&w=600&q=80",
+                    badge: "Fasilitas Premium",
+                    badgeColor: "bg-gray-800 text-secondary",
+                    desc: "Hotel Depan Masjid (Zamzam Tower), Kereta Cepat",
+                    date: "20 Des 2026",
+                    returnDate: "30 Des 2026",
+                    flight: "Saudia First Class",
+                    hotel: "Bintang 5+",
+                    filled: 2,
+                    quota: 20,
+                    price: "55 Jt"
+                }
+            ];
+
+            // Render Functions
+            const container = document.getElementById('paket-container');
+            const loadMoreBtnTop = document.getElementById('load-more-btn-top');
+            const loadMoreBtnBottom = document.getElementById('load-more-btn-bottom');
+            let isExpanded = false;
+
+            function renderPackages(showAll) {
+                container.innerHTML = ''; 
+                const itemsToShow = showAll ? packagesData : packagesData.slice(0, 6);
+
+                itemsToShow.forEach(pkg => {
+                    const filledPercent = (pkg.filled / pkg.quota) * 100;
+                    const seatsLeft = pkg.quota - pkg.filled;
+                    let seatStatusColor = "text-primary";
+                    let barColor = "bg-primary";
+                    let seatText = `Sisa ${seatsLeft} Seat`;
+
+                    if (seatsLeft <= 5) {
+                        seatStatusColor = "text-red-500";
+                        barColor = "bg-red-500";
+                        seatText = `Sisa ${seatsLeft} Seat!`;
+                    }
+
+                    const cardHTML = `
+                        <div class="bg-white rounded-xl overflow-hidden card-shadow hover:shadow-xl transition duration-300 flex flex-col h-full animate-fade-in group">
+                            <div class="relative overflow-hidden h-48">
+                                <!-- Image with Hover Zoom Effect -->
+                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="${pkg.image}" alt="${pkg.title}">
+                                
+                                <!-- Overlay Gradient Transparan -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div>
+
+                                <!-- Badge -->
+                                <span class="absolute top-4 right-4 ${pkg.badgeColor} text-xs font-bold px-3 py-1 rounded-full shadow-md z-10">${pkg.badge}</span>
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-primary mb-1">${pkg.title}</h3>
+                                <p class="text-sm text-gray-500 mb-4 font-medium">${pkg.desc}</p>
+                                
+                                <div class="bg-gray-50 p-3 rounded-lg mb-4 border border-gray-100">
+                                    <div class="flex justify-between items-center text-sm mb-1">
+                                        <span class="text-gray-500">Berangkat:</span>
+                                        <span class="font-semibold text-gray-900">${pkg.date}</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-sm">
+                                        <span class="text-gray-500">Kembali:</span>
+                                        <span class="font-semibold text-gray-900">${pkg.returnDate}</span>
+                                    </div>
+                                </div>
+
+                                <ul class="text-gray-700 space-y-2 mb-4 text-sm flex-grow">
+                                    <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-secondary" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm-3.707-9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L8 10.586l-1.707-1.707z"></path></svg> ${pkg.flight}</li>
+                                    <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-secondary" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm-3.707-9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L8 10.586l-1.707-1.707z"></path></svg> ${pkg.hotel}</li>
+                                </ul>
+
+                                <div class="mb-6">
+                                    <div class="flex justify-between text-xs font-semibold mb-1">
+                                        <span class="text-gray-600">Terisi: ${pkg.filled}/${pkg.quota}</span>
+                                        <span class="${seatStatusColor}">${seatText}</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="${barColor} h-2 rounded-full transition-all duration-1000" style="width: ${filledPercent}%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                                    <div class="flex flex-col">
+                                        <span class="text-xs text-gray-500">Mulai dari</span>
+                                        <span class="text-2xl font-extrabold text-primary">IDR ${pkg.price}</span>
+                                    </div>
+                                    <a href="#fleksibel" class="bg-primary text-white hover:bg-green-700 px-5 py-2 rounded-full text-sm font-bold transition duration-150 shadow-md transform hover:translate-y-[-2px]">Pesan</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    container.insertAdjacentHTML('beforeend', cardHTML);
+                });
+            }
+
+            renderPackages(false);
+
+            const togglePackages = () => {
+                isExpanded = !isExpanded;
+                renderPackages(isExpanded);
+                if (isExpanded) {
+                    loadMoreBtnBottom.textContent = "Tutup Daftar Paket";
+                    loadMoreBtnTop.innerHTML = `Tutup <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>`;
+                } else {
+                    loadMoreBtnBottom.textContent = "Lihat Semua Paket (12 Pilihan)";
+                    loadMoreBtnTop.innerHTML = `Lihat Semua Paket <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>`;
+                    document.getElementById('paket').scrollIntoView({ behavior: 'smooth' });
+                }
+            };
+            loadMoreBtnTop.addEventListener('click', togglePackages);
+            loadMoreBtnBottom.addEventListener('click', togglePackages);
+
+            // ... (Kode Logika Rancang Paket dan Testimoni tetap sama) ...
+            
+            // --- LOGIKA RANCANG PAKET ---
+
+            // Data Maskapai per Destinasi
+            const airlinesByDest = {
+                'umroh': ['Saudia Airlines', 'Garuda Indonesia', 'Emirates', 'Qatar Airways', 'Lion Air Premium'],
+                'umroh_turki': ['Turkish Airlines', 'Saudia Airlines', 'Emirates', 'Qatar Airways'],
+                'umroh_dubai': ['Emirates', 'Etihad', 'Saudia Airlines'],
+                'umroh_aqsa': ['Emirates', 'Qatar Airways', 'Royal Jordanian', 'Egypt Air'],
+                'halal_uzbek': ['Uzbekistan Airways', 'Turkish Airlines'],
+                'halal_dubai': ['Emirates', 'Etihad', 'Qatar Airways'],
+                'halal_mesir': ['Egypt Air', 'Emirates', 'Qatar Airways'],
+                'halal_spanyol': ['Qatar Airways', 'Emirates', 'Turkish Airlines', 'Etihad'],
+                'halal_eropa': ['Emirates', 'Qatar Airways', 'Etihad', 'Turkish Airlines'],
+                'halal_balkan': ['Turkish Airlines', 'Qatar Airways', 'Emirates']
+            };
+
+            const destSelect = document.getElementById('destinasi');
+            const maskapaiSelect = document.getElementById('maskapai');
+            const tglBerangkatInput = document.getElementById('tgl-berangkat');
+            const tglKembaliInput = document.getElementById('tgl-kembali');
+            const durasiSelect = document.getElementById('durasi');
+            const pesertaInput = document.getElementById('peserta');
+
+            // 1. Update Maskapai based on Destination
+            destSelect.addEventListener('change', function() {
+                const selectedDest = this.value;
+                maskapaiSelect.innerHTML = '<option value="">-- Pilih Maskapai --</option>';
+                maskapaiSelect.disabled = true;
+                maskapaiSelect.classList.add('bg-gray-50');
+
+                if (selectedDest && airlinesByDest[selectedDest]) {
+                    maskapaiSelect.disabled = false;
+                    maskapaiSelect.classList.remove('bg-gray-50');
+                    airlinesByDest[selectedDest].forEach(airline => {
+                        const option = document.createElement('option');
+                        option.value = airline;
+                        option.textContent = airline;
+                        maskapaiSelect.appendChild(option);
+                    });
+                }
+            });
+
+            // 2. Autofill Return Date
+            function updateReturnDate() {
+                const startDateStr = tglBerangkatInput.value;
+                const days = parseInt(durasiSelect.value);
+                
+                if (startDateStr && days) {
+                    const startDate = new Date(startDateStr);
+                    // Add days (minus 1 because day 1 is departure day)
+                    startDate.setDate(startDate.getDate() + (days - 1));
+                    
+                    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+                    tglKembaliInput.value = startDate.toLocaleDateString('id-ID', options);
+                } else {
+                    tglKembaliInput.value = "";
+                }
+            }
+            tglBerangkatInput.addEventListener('change', updateReturnDate);
+            durasiSelect.addEventListener('change', updateReturnDate);
+
+            // 3. Calculate Estimate
+            const cekHargaBtn = document.getElementById('cek-harga-btn');
+            const estimasiResult = document.getElementById('estimasi-result');
+            const estimasiPrice = document.getElementById('estimasi-price');
+            const notifBox = document.getElementById('notif-box');
+            
+            function showNotification(message, type = 'error') {
+                notifBox.textContent = message;
+                notifBox.classList.remove('hidden', 'bg-red-100', 'border-red-400', 'text-red-700', 'bg-green-100', 'border-green-400', 'text-green-700');
+                if (type === 'error') {
+                    notifBox.classList.add('bg-red-100', 'border-red-400', 'text-red-700');
+                } else {
+                    notifBox.classList.add('bg-green-100', 'border-green-400', 'text-green-700');
+                }
+                setTimeout(() => {
+                    notifBox.classList.add('hidden');
+                }, 4000);
+            }
+
+            cekHargaBtn.addEventListener('click', () => {
+                // Validation
+                const dest = destSelect.options[destSelect.selectedIndex].text;
+                const destVal = destSelect.value;
+                const durasi = durasiSelect.value;
+                const participants = parseInt(pesertaInput.value);
+                const date = tglBerangkatInput.value;
+                const maskapai = maskapaiSelect.value;
+                
+                if (!destVal || !date || !maskapai) {
+                    showNotification("Mohon lengkapi data destinasi, tanggal, dan maskapai.", 'error');
+                    return;
+                }
+                
+                if (participants < 5) {
+                    showNotification("Jumlah peserta minimal 5 orang untuk paket group privat.", 'error');
+                    return;
+                }
+
+                // Simple Calculation Logic
+                let basePrice = 25000000;
+                if (destVal.includes('europe') || destVal.includes('spanyol')) basePrice = 35000000;
+                if (destVal.includes('turki')) basePrice = 30000000;
+                if (destVal.includes('uzbek')) basePrice = 27000000;
+
+                // Adjust by duration
+                if (parseInt(durasi) > 9) basePrice += (parseInt(durasi) - 9) * 1500000;
+                
+                // Adjust by Hotel
+                const hotelVal = document.getElementById('hotel').value;
+                if (hotelVal === '5') basePrice += 4000000;
+                if (hotelVal === '5p') basePrice += 9000000;
+
+                // Adjust by Cabin
+                const kabinVal = document.getElementById('kabin').value;
+                if (kabinVal === 'business') basePrice += 20000000;
+
+                // Discount for larger groups
+                if (participants >= 10) basePrice -= 500000; // Small discount
+
+                const formattedPrice = new Intl.NumberFormat('id-ID', {
+                    style: 'currency',
+                    currency: 'IDR',
+                    minimumFractionDigits: 0
+                }).format(basePrice);
+
+                // Populate Result
+                document.getElementById('res-destinasi').textContent = `${dest} (${durasi} Hari)`;
+                document.getElementById('res-tanggal').textContent = `Berangkat: ${new Date(date).toLocaleDateString('id-ID', {day: 'numeric', month: 'short', year: 'numeric'})}`;
+                document.getElementById('res-fasilitas').textContent = `${maskapai} | Hotel Bintang ${hotelVal === '5p' ? '5+ (Depan Masjid)' : hotelVal}`;
+                document.getElementById('res-peserta').textContent = `${participants} Orang`;
+                estimasiPrice.textContent = formattedPrice;
+
+                estimasiResult.classList.remove('hidden');
+                showNotification("Estimasi berhasil dihitung!", 'success');
+                
+                // Scroll to result
+                estimasiResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            });
+
+            // Mobile Menu
+            const mobileMenuBtn = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+             mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // --- 2. AUTO-SCROLL TESTIMONI ---
+            const testimoniScroll = document.getElementById('testimoni-scroll');
+            const prevTestimoniBtn = document.getElementById('prev-testimoni');
+            const nextTestimoniBtn = document.getElementById('next-testimoni');
+
+            // Scroll amount (approx width of one card + gap)
+            // Di sini kita pakai estimasi lebar 50% container
+            const getScrollAmount = () => {
+                if (window.innerWidth >= 768) {
+                    return testimoniScroll.clientWidth / 2; // Scroll 50% width on desktop
+                }
+                return testimoniScroll.clientWidth; // Scroll full width on mobile
+            };
+
+            prevTestimoniBtn.addEventListener('click', () => {
+                testimoniScroll.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+            });
+
+            nextTestimoniBtn.addEventListener('click', () => {
+                testimoniScroll.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+            });
+
+            // Auto Scroll Logic
+            setInterval(() => {
+                // Cek apakah sudah mentok kanan
+                // Toleransi 10px untuk perbedaan rounding
+                if (testimoniScroll.scrollLeft + testimoniScroll.clientWidth >= testimoniScroll.scrollWidth - 10) {
+                    // Kembali ke awal
+                    testimoniScroll.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    // Scroll ke kanan
+                    testimoniScroll.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+                }
+            }, 6000); // Ganti tiap 6 detik (lebih lama agar bisa dibaca)
+        });
+    </script>
+</body>
+</html>
