@@ -61,11 +61,29 @@
 
         /* Calendar Styles */
         .calendar-day {
-            @apply h-10 w-10 flex items-center justify-center rounded-full text-sm;
+            @apply h-8 md:h-10 w-8 md:w-10 flex items-center justify-center rounded-full text-xs md:text-sm;
         }
 
         .calendar-event {
             @apply bg-gold text-white font-bold cursor-pointer hover:bg-yellow-600 transition;
+        }
+
+        /* Timeline Styles */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 15px;
+            width: 2px;
+            background-color: #e5e7eb;
+            z-index: 0;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-line::before {
+                left: 11px;
+            }
         }
     </style>
 </head>
@@ -264,11 +282,11 @@
                 <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-white opacity-10"></div>
                 <div class="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 rounded-full bg-gold opacity-20"></div>
 
-                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4 relative z-10">Pendaftaran Bimbingan Manasik
-                    Haji 2026</h2>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4 relative z-10">Jadwal Manasik Haji & Umroh
+                    2026</h2>
                 <p class="text-lg text-green-100 max-w-2xl mx-auto relative z-10 mb-8">
-                    Persiapkan diri Anda menuju perjalanan suci dengan bimbingan intensif selama 2 bulan. Mulai Awal
-                    Januari 2026.
+                    Persiapkan diri Anda menuju perjalanan suci dengan bimbingan intensif setiap pekan. Mulai Desember
+                    2025.
                 </p>
                 <div
                     class="relative z-10 inline-flex items-center bg-white/10 rounded-full px-4 py-1 border border-white/30">
@@ -278,205 +296,408 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Left Column: Calendar & Schedule -->
-                <div class="lg:col-span-2 space-y-8">
+                <!-- Left Column: Calendar & Timeline -->
+                <div class="lg:col-span-2 space-y-6 md:space-y-8">
 
-                    <!-- Calendar Container -->
-                    <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
-                        <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
-                            <svg class="w-6 h-6 text-gold mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
-                                </path>
-                            </svg>
-                            Jadwal Pelaksanaan (Setiap Minggu)
-                        </h3>
+                    <!-- Calendar Container (December 2025) -->
+                    <div class="bg-white rounded-xl shadow-md p-4 md:p-6 border border-gray-100">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-lg md:text-xl font-bold text-gray-800 flex items-center">
+                                <svg class="w-6 h-6 text-gold mr-2" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                                Kalender Kegiatan
+                            </h3>
+                            <span class="bg-kbihu text-white text-xs font-bold px-3 py-1 rounded-full">Desember
+                                2025</span>
+                        </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <!-- January Calendar -->
+                        <div class="max-w-md mx-auto">
+                            <!-- December Calendar Grid -->
                             <div>
-                                <h4 class="font-bold text-center mb-2 bg-gray-100 py-1 rounded">Januari 2026</h4>
                                 <div
-                                    class="grid grid-cols-7 gap-1 text-center text-xs mb-2 text-gray-500 font-semibold">
-                                    <div>Min</div>
+                                    class="grid grid-cols-7 gap-1 text-center text-xs mb-4 text-gray-500 font-semibold uppercase tracking-wide">
                                     <div>Sen</div>
                                     <div>Sel</div>
                                     <div>Rab</div>
                                     <div>Kam</div>
                                     <div>Jum</div>
-                                    <div>Sab</div>
+                                    <div class="text-kbihu font-bold">Sab</div>
+                                    <div class="text-red-500 font-bold">Ahd</div>
                                 </div>
-                                <div class="grid grid-cols-7 gap-2 text-sm text-gray-700">
-                                    <!-- Empty Cells for start of month (Jan 1 2026 is Thursday) -->
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                    <div class="h-8 flex items-center justify-center">1</div>
-                                    <div class="h-8 flex items-center justify-center">2</div>
-                                    <div class="h-8 flex items-center justify-center">3</div>
-                                    <!-- Week 1 -->
+                                <div class="grid grid-cols-7 gap-1 md:gap-2 text-sm text-gray-700">
+                                    <!-- December 2025 starts on Monday (1st) -->
                                     <div
-                                        class="h-8 w-8 mx-auto flex items-center justify-center rounded-full bg-gold text-white font-bold cursor-help group relative">
-                                        4
-                                        <div
-                                            class="absolute bottom-full mb-2 hidden group-hover:block w-32 bg-gray-900 text-white text-xs p-2 rounded z-20">
-                                            Pembukaan & Fiqih Haji</div>
-                                    </div>
-                                    <div class="h-8 flex items-center justify-center">5</div>
-                                    <div class="h-8 flex items-center justify-center">6</div>
-                                    <div class="h-8 flex items-center justify-center">7</div>
-                                    <div class="h-8 flex items-center justify-center">8</div>
-                                    <div class="h-8 flex items-center justify-center">9</div>
-                                    <div class="h-8 flex items-center justify-center">10</div>
-                                    <!-- Week 2 -->
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        1</div>
                                     <div
-                                        class="h-8 w-8 mx-auto flex items-center justify-center rounded-full bg-gold text-white font-bold cursor-help group relative">
-                                        11
-                                        <div
-                                            class="absolute bottom-full mb-2 hidden group-hover:block w-32 bg-gray-900 text-white text-xs p-2 rounded z-20">
-                                            Rukun & Wajib Haji</div>
-                                    </div>
-                                    <div class="h-8 flex items-center justify-center">12</div>
-                                    <div class="h-8 flex items-center justify-center">13</div>
-                                    <div class="h-8 flex items-center justify-center">14</div>
-                                    <div class="h-8 flex items-center justify-center">15</div>
-                                    <div class="h-8 flex items-center justify-center">16</div>
-                                    <div class="h-8 flex items-center justify-center">17</div>
-                                    <!-- Week 3 -->
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        2</div>
                                     <div
-                                        class="h-8 w-8 mx-auto flex items-center justify-center rounded-full bg-gold text-white font-bold cursor-help group relative">
-                                        18
-                                        <div
-                                            class="absolute bottom-full mb-2 hidden group-hover:block w-32 bg-gray-900 text-white text-xs p-2 rounded z-20">
-                                            Larangan Ihram & Dam</div>
-                                    </div>
-                                    <div class="h-8 flex items-center justify-center">19</div>
-                                    <div class="h-8 flex items-center justify-center">20</div>
-                                    <div class="h-8 flex items-center justify-center">21</div>
-                                    <div class="h-8 flex items-center justify-center">22</div>
-                                    <div class="h-8 flex items-center justify-center">23</div>
-                                    <div class="h-8 flex items-center justify-center">24</div>
-                                    <!-- Week 4 -->
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        3</div>
                                     <div
-                                        class="h-8 w-8 mx-auto flex items-center justify-center rounded-full bg-gold text-white font-bold cursor-help group relative">
-                                        25
-                                        <div
-                                            class="absolute bottom-full mb-2 hidden group-hover:block w-32 bg-gray-900 text-white text-xs p-2 rounded z-20">
-                                            Simulasi Thawaf</div>
-                                    </div>
-                                    <div class="h-8 flex items-center justify-center">26</div>
-                                    <div class="h-8 flex items-center justify-center">27</div>
-                                    <div class="h-8 flex items-center justify-center">28</div>
-                                    <div class="h-8 flex items-center justify-center">29</div>
-                                    <div class="h-8 flex items-center justify-center">30</div>
-                                    <div class="h-8 flex items-center justify-center">31</div>
-                                </div>
-                            </div>
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        4</div>
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        5</div>
 
-                            <!-- February Calendar -->
-                            <div>
-                                <h4 class="font-bold text-center mb-2 bg-gray-100 py-1 rounded">Februari 2026</h4>
-                                <div
-                                    class="grid grid-cols-7 gap-1 text-center text-xs mb-2 text-gray-500 font-semibold">
-                                    <div>Min</div>
-                                    <div>Sen</div>
-                                    <div>Sel</div>
-                                    <div>Rab</div>
-                                    <div>Kam</div>
-                                    <div>Jum</div>
-                                    <div>Sab</div>
-                                </div>
-                                <div class="grid grid-cols-7 gap-2 text-sm text-gray-700">
-                                    <!-- Week 1 (Feb 1 is Sunday) -->
+                                    <!-- Event: 6 Dec -->
                                     <div
-                                        class="h-8 w-8 mx-auto flex items-center justify-center rounded-full bg-gold text-white font-bold cursor-help group relative">
-                                        1
-                                        <div
-                                            class="absolute bottom-full mb-2 hidden group-hover:block w-32 bg-gray-900 text-white text-xs p-2 rounded z-20">
-                                            Wuquf & Mabit</div>
+                                        class="h-8 md:h-10 w-8 md:w-10 mx-auto flex items-center justify-center rounded-full bg-gold text-white font-bold cursor-help shadow-md ring-2 ring-white hover:scale-110 transition">
+                                        6
                                     </div>
-                                    <div class="h-8 flex items-center justify-center">2</div>
-                                    <div class="h-8 flex items-center justify-center">3</div>
-                                    <div class="h-8 flex items-center justify-center">4</div>
-                                    <div class="h-8 flex items-center justify-center">5</div>
-                                    <div class="h-8 flex items-center justify-center">6</div>
-                                    <div class="h-8 flex items-center justify-center">7</div>
-                                    <!-- Week 2 -->
+                                    <!-- Event: 7 Dec -->
                                     <div
-                                        class="h-8 w-8 mx-auto flex items-center justify-center rounded-full bg-gold text-white font-bold cursor-help group relative">
-                                        8
-                                        <div
-                                            class="absolute bottom-full mb-2 hidden group-hover:block w-32 bg-gray-900 text-white text-xs p-2 rounded z-20">
-                                            Praktik Lontar Jumrah</div>
+                                        class="h-8 md:h-10 w-8 md:w-10 mx-auto flex items-center justify-center rounded-full bg-gold text-white font-bold cursor-help shadow-md ring-2 ring-white hover:scale-110 transition">
+                                        7
                                     </div>
-                                    <div class="h-8 flex items-center justify-center">9</div>
-                                    <div class="h-8 flex items-center justify-center">10</div>
-                                    <div class="h-8 flex items-center justify-center">11</div>
-                                    <div class="h-8 flex items-center justify-center">12</div>
-                                    <div class="h-8 flex items-center justify-center">13</div>
-                                    <div class="h-8 flex items-center justify-center">14</div>
-                                    <!-- Week 3 -->
+
                                     <div
-                                        class="h-8 w-8 mx-auto flex items-center justify-center rounded-full bg-gold text-white font-bold cursor-help group relative">
-                                        15
-                                        <div
-                                            class="absolute bottom-full mb-2 hidden group-hover:block w-32 bg-gray-900 text-white text-xs p-2 rounded z-20">
-                                            Kesehatan Haji</div>
-                                    </div>
-                                    <div class="h-8 flex items-center justify-center">16</div>
-                                    <div class="h-8 flex items-center justify-center">17</div>
-                                    <div class="h-8 flex items-center justify-center">18</div>
-                                    <div class="h-8 flex items-center justify-center">19</div>
-                                    <div class="h-8 flex items-center justify-center">20</div>
-                                    <div class="h-8 flex items-center justify-center">21</div>
-                                    <!-- Week 4 -->
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        8</div>
                                     <div
-                                        class="h-8 w-8 mx-auto flex items-center justify-center rounded-full bg-gold text-white font-bold cursor-help group relative">
-                                        22
-                                        <div
-                                            class="absolute bottom-full mb-2 hidden group-hover:block w-32 bg-gray-900 text-white text-xs p-2 rounded z-20">
-                                            Simulasi Lengkap & Penutupan</div>
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        9</div>
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        10</div>
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        11</div>
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        12</div>
+
+                                    <!-- Event: 13 Dec -->
+                                    <div
+                                        class="h-8 md:h-10 w-8 md:w-10 mx-auto flex items-center justify-center rounded-full bg-gold text-white font-bold cursor-help shadow-md ring-2 ring-white hover:scale-110 transition">
+                                        13
                                     </div>
-                                    <div class="h-8 flex items-center justify-center">23</div>
-                                    <div class="h-8 flex items-center justify-center">24</div>
-                                    <div class="h-8 flex items-center justify-center">25</div>
-                                    <div class="h-8 flex items-center justify-center">26</div>
-                                    <div class="h-8 flex items-center justify-center">27</div>
-                                    <div class="h-8 flex items-center justify-center">28</div>
+                                    <!-- Event: 14 Dec -->
+                                    <div
+                                        class="h-8 md:h-10 w-8 md:w-10 mx-auto flex items-center justify-center rounded-full bg-gold text-white font-bold cursor-help shadow-md ring-2 ring-white hover:scale-110 transition">
+                                        14
+                                    </div>
+
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        15</div>
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        16</div>
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        17</div>
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        18</div>
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        19</div>
+
+                                    <!-- Event: 20 Dec -->
+                                    <div
+                                        class="h-8 md:h-10 w-8 md:w-10 mx-auto flex items-center justify-center rounded-full bg-gold text-white font-bold cursor-help shadow-md ring-2 ring-white hover:scale-110 transition">
+                                        20
+                                    </div>
+                                    <!-- Event: 21 Dec -->
+                                    <div
+                                        class="h-8 md:h-10 w-8 md:w-10 mx-auto flex items-center justify-center rounded-full bg-gold text-white font-bold cursor-help shadow-md ring-2 ring-white hover:scale-110 transition">
+                                        21
+                                    </div>
+
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        22</div>
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        23</div>
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        24</div>
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        25</div>
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        26</div>
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        27</div>
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        28</div>
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        29</div>
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        30</div>
+                                    <div
+                                        class="h-8 md:h-10 flex items-center justify-center rounded-lg hover:bg-gray-50">
+                                        31</div>
+                                    <div></div> <!-- Empty for alignment -->
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Agenda Details List -->
-                    <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
-                        <h4 class="font-bold text-gray-800 mb-4">Detail Agenda Kegiatan</h4>
-                        <div class="space-y-3 text-sm">
-                            <div class="flex items-start"><span
-                                    class="bg-gold text-white text-xs px-2 py-1 rounded mr-3 w-20 text-center flex-shrink-0">04
-                                    Jan</span> <span>Pembukaan, Taaruf, dan Pengenalan Fiqih Haji Dasar</span></div>
-                            <div class="flex items-start"><span
-                                    class="bg-gold text-white text-xs px-2 py-1 rounded mr-3 w-20 text-center flex-shrink-0">11
-                                    Jan</span> <span>Pendalaman Rukun & Wajib Haji (Niat, Ihram)</span></div>
-                            <div class="flex items-start"><span
-                                    class="bg-gold text-white text-xs px-2 py-1 rounded mr-3 w-20 text-center flex-shrink-0">18
-                                    Jan</span> <span>Larangan Ihram & Membayar Dam (Denda)</span></div>
-                            <div class="flex items-start"><span
-                                    class="bg-gold text-white text-xs px-2 py-1 rounded mr-3 w-20 text-center flex-shrink-0">25
-                                    Jan</span> <span>Praktik/Simulasi Thawaf dan Sai di Lapangan</span></div>
-                            <div class="flex items-start"><span
-                                    class="bg-gold text-white text-xs px-2 py-1 rounded mr-3 w-20 text-center flex-shrink-0">01
-                                    Feb</span> <span>Fiqih Wuquf di Arafah & Mabit di Muzdalifah/Mina</span></div>
-                            <div class="flex items-start"><span
-                                    class="bg-gold text-white text-xs px-2 py-1 rounded mr-3 w-20 text-center flex-shrink-0">08
-                                    Feb</span> <span>Praktik Lontar Jumrah & Tahallul</span></div>
-                            <div class="flex items-start"><span
-                                    class="bg-gold text-white text-xs px-2 py-1 rounded mr-3 w-20 text-center flex-shrink-0">15
-                                    Feb</span> <span>Tips Kesehatan & Keselamatan selama di Tanah Suci</span></div>
-                            <div class="flex items-start"><span
-                                    class="bg-gold text-white text-xs px-2 py-1 rounded mr-3 w-20 text-center flex-shrink-0">22
-                                    Feb</span> <span>Simulasi Manasik Lengkap (Gladi Resik) & Penutupan</span></div>
+                    <!-- Detail Agenda Timeline -->
+                    <div class="bg-white rounded-xl shadow-md p-4 md:p-8 border border-gray-100">
+                        <div class="flex items-center justify-between mb-6 md:mb-8">
+                            <h4 class="text-lg md:text-xl font-bold text-gray-800">Detail Rangkaian Kegiatan</h4>
+                            <div class="text-xs md:text-sm text-gray-500">Tahun 2026 M / 1447 H</div>
+                        </div>
+
+                        <!-- Timeline Container -->
+                        <div class="relative timeline-line ml-2 md:ml-4">
+
+                            <!-- Agenda 1: 06 Des -->
+                            <div class="mb-6 md:mb-10 relative pl-8 md:pl-12">
+                                <div
+                                    class="absolute -left-2 top-0 bg-gold text-white w-7 h-7 md:w-9 md:h-9 rounded-full flex items-center justify-center font-bold text-xs md:text-sm ring-4 ring-white shadow z-10">
+                                    06
+                                </div>
+                                <div>
+                                    <h5 class="text-base md:text-lg font-bold text-kbihu mb-1">Sabtu, 06 Desember 2025
+                                    </h5>
+                                    <div
+                                        class="bg-gray-50 rounded-lg border border-gray-100 p-3 md:p-4 space-y-2 md:space-y-3 shadow-sm hover:shadow-md transition text-sm md:text-base">
+                                        <div
+                                            class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 border-b border-gray-200 pb-2">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">08.30
+                                                - 08.45</span>
+                                            <span class="text-gray-800 font-medium">Pembukaan</span>
+                                        </div>
+                                        <div
+                                            class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 border-b border-gray-200 pb-2">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">08.45
+                                                - 09.45</span>
+                                            <span class="text-gray-800 font-medium">Kebijakan KBIHU Al Kautsar</span>
+                                        </div>
+                                        <div
+                                            class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 border-b border-gray-200 pb-2">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">09.45
+                                                - 10.00</span>
+                                            <span class="text-gray-600 italic">Break Snack</span>
+                                        </div>
+                                        <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">10.00
+                                                - 11.30</span>
+                                            <span class="text-gray-800 font-medium">Syarat dan Sunnah Haji</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Agenda 2: 07 Des -->
+                            <div class="mb-6 md:mb-10 relative pl-8 md:pl-12">
+                                <div
+                                    class="absolute -left-2 top-0 bg-gold text-white w-7 h-7 md:w-9 md:h-9 rounded-full flex items-center justify-center font-bold text-xs md:text-sm ring-4 ring-white shadow z-10">
+                                    07
+                                </div>
+                                <div>
+                                    <h5 class="text-base md:text-lg font-bold text-kbihu mb-1">Ahad, 07 Desember 2025
+                                    </h5>
+                                    <div
+                                        class="bg-gray-50 rounded-lg border border-gray-100 p-3 md:p-4 space-y-2 md:space-y-3 shadow-sm hover:shadow-md transition text-sm md:text-base">
+                                        <div
+                                            class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 border-b border-gray-200 pb-2">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">08.30
+                                                - 09.30</span>
+                                            <span class="text-gray-800 font-medium">Wajib dan Rukun Haji</span>
+                                        </div>
+                                        <div
+                                            class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 border-b border-gray-200 pb-2">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">09.30
+                                                - 09.45</span>
+                                            <span class="text-gray-600 italic">Break Snack</span>
+                                        </div>
+                                        <div
+                                            class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 border-b border-gray-200 pb-2">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">09.45
+                                                - 10.30</span>
+                                            <span class="text-gray-800 font-medium">Kesehatan Haji dari Puskesmas</span>
+                                        </div>
+                                        <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">10.30
+                                                - 11.30</span>
+                                            <span class="text-gray-800 font-medium">Pengamanan Diri dan Barang
+                                                Bawaan</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Agenda 3: 13 Des -->
+                            <div class="mb-6 md:mb-10 relative pl-8 md:pl-12">
+                                <div
+                                    class="absolute -left-2 top-0 bg-gold text-white w-7 h-7 md:w-9 md:h-9 rounded-full flex items-center justify-center font-bold text-xs md:text-sm ring-4 ring-white shadow z-10">
+                                    13
+                                </div>
+                                <div>
+                                    <h5 class="text-base md:text-lg font-bold text-kbihu mb-1">Sabtu, 13 Desember 2025
+                                    </h5>
+                                    <div
+                                        class="bg-gray-50 rounded-lg border border-gray-100 p-3 md:p-4 space-y-2 md:space-y-3 shadow-sm hover:shadow-md transition text-sm md:text-base">
+                                        <div
+                                            class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 border-b border-gray-200 pb-2">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">08.30
+                                                - 09.30</span>
+                                            <span class="text-gray-800 font-medium">Praktek Menggunakan Pakaian
+                                                Ihrom</span>
+                                        </div>
+                                        <div
+                                            class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 border-b border-gray-200 pb-2">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">09.30
+                                                - 10.30</span>
+                                            <span class="text-gray-800 font-medium">Kebijakan Pemerintah dari
+                                                Kemenhaj</span>
+                                        </div>
+                                        <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">10.30
+                                                - 11.30</span>
+                                            <span class="text-gray-800 font-medium">Keharusan di Embarkasi Asrama Haji &
+                                                Pesawat</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Agenda 4: 14 Des -->
+                            <div class="mb-6 md:mb-10 relative pl-8 md:pl-12">
+                                <div
+                                    class="absolute -left-2 top-0 bg-gold text-white w-7 h-7 md:w-9 md:h-9 rounded-full flex items-center justify-center font-bold text-xs md:text-sm ring-4 ring-white shadow z-10">
+                                    14
+                                </div>
+                                <div>
+                                    <h5 class="text-base md:text-lg font-bold text-kbihu mb-1">Ahad, 14 Desember 2025
+                                    </h5>
+                                    <div
+                                        class="bg-gray-50 rounded-lg border border-gray-100 p-3 md:p-4 space-y-2 md:space-y-3 shadow-sm hover:shadow-md transition text-sm md:text-base">
+                                        <div
+                                            class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 border-b border-gray-200 pb-2">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">08.30
+                                                - 09.30</span>
+                                            <span class="text-gray-800 font-medium">Keharusan di Hotel</span>
+                                        </div>
+                                        <div
+                                            class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 border-b border-gray-200 pb-2">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">09.30
+                                                - 09.45</span>
+                                            <span class="text-gray-600 italic">Break Snack</span>
+                                        </div>
+                                        <div
+                                            class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 border-b border-gray-200 pb-2">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">09.45
+                                                - 10.30</span>
+                                            <span class="text-gray-800 font-medium">Larangan Ihrom & Denda (Dam)</span>
+                                        </div>
+                                        <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">10.30
+                                                - 11.30</span>
+                                            <span class="text-gray-800 font-medium">Router Perjalanan Haji Gelombang 1 &
+                                                2</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Agenda 5: 20 Des -->
+                            <div class="mb-6 md:mb-10 relative pl-8 md:pl-12">
+                                <div
+                                    class="absolute -left-2 top-0 bg-gold text-white w-7 h-7 md:w-9 md:h-9 rounded-full flex items-center justify-center font-bold text-xs md:text-sm ring-4 ring-white shadow z-10">
+                                    20
+                                </div>
+                                <div>
+                                    <h5 class="text-base md:text-lg font-bold text-kbihu mb-1">Sabtu, 20 Desember 2025
+                                    </h5>
+                                    <div
+                                        class="bg-yellow-50 rounded-lg border border-yellow-200 p-3 md:p-4 shadow-sm hover:shadow-md transition text-sm md:text-base">
+                                        <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-bold text-white bg-gold px-3 py-1.5 rounded border border-yellow-600 w-fit md:min-w-[120px] text-center shadow-sm">08.00
+                                                - 11.30</span>
+                                            <span class="text-gray-900 font-bold text-base md:text-lg">PRAKTEK MANASIK
+                                                HAJI & UMROH</span>
+                                        </div>
+                                        <p
+                                            class="text-xs md:text-sm text-gray-600 mt-2 ml-0 md:ml-[136px] flex items-center">
+                                            <svg class="w-4 h-4 mr-1 text-red-500" fill="currentColor"
+                                                viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd"
+                                                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                            Lokasi: Asrama Haji
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Agenda 6: 21 Des -->
+                            <div class="relative pl-8 md:pl-12">
+                                <div
+                                    class="absolute -left-2 top-0 bg-gold text-white w-7 h-7 md:w-9 md:h-9 rounded-full flex items-center justify-center font-bold text-xs md:text-sm ring-4 ring-white shadow z-10">
+                                    21
+                                </div>
+                                <div>
+                                    <h5 class="text-base md:text-lg font-bold text-kbihu mb-1">Ahad, 21 Desember 2025
+                                    </h5>
+                                    <div
+                                        class="bg-gray-50 rounded-lg border border-gray-100 p-3 md:p-4 space-y-2 md:space-y-3 shadow-sm hover:shadow-md transition text-sm md:text-base">
+                                        <div
+                                            class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 border-b border-gray-200 pb-2">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">08.30
+                                                - 09.30</span>
+                                            <span class="text-gray-800 font-medium">Ketentuan Barang di Koper Besar &
+                                                Kecil</span>
+                                        </div>
+                                        <div
+                                            class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 border-b border-gray-200 pb-2">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">09.30
+                                                - 09.45</span>
+                                            <span class="text-gray-600 italic">Break Snack</span>
+                                        </div>
+                                        <div
+                                            class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 border-b border-gray-200 pb-2">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">09.45
+                                                - 10.30</span>
+                                            <span class="text-gray-800 font-medium">Jama'ah Murur</span>
+                                        </div>
+                                        <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4">
+                                            <span
+                                                class="text-xs md:text-sm font-mono font-semibold text-gray-500 bg-white px-2 py-0.5 md:py-1 rounded border w-fit md:min-w-[120px] text-center">10.30
+                                                - 11.30</span>
+                                            <span class="text-gray-800 font-medium">Jama'ah Tanazzul & Penutupan</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -494,7 +715,7 @@
                                     stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M5 13l4 4L19 7"></path>
-                                </svg> 8x Pertemuan Intensif (Teori & Praktik)</li>
+                                </svg> 6x Pertemuan Intensif (Teori & Praktik)</li>
                             <li class="flex items-start"><svg class="w-5 h-5 text-green-500 mr-2" fill="none"
                                     stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -606,6 +827,476 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- SECTION TESTIMONI (UPDATED CAROUSEL) -->
+    <section id="testimoni" class="py-16 bg-white border-t border-gray-100 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span
+                    class="bg-green-100 text-kbihu text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Testimoni</span>
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 font-serif">Kata Mereka Tentang Al-Kautsar</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Pengalaman nyata dari para tamu Allah yang telah merasakan khidmatnya bimbingan dan perjalanan
+                    bersama kami.
+                </p>
+            </div>
+
+            <!-- Carousel Wrapper -->
+            <div class="relative group" onmouseenter="pauseCarousel()" onmouseleave="resumeCarousel()">
+
+                <!-- Navigation Buttons -->
+                <button onclick="prevTestimoni()"
+                    class="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg border border-gray-100 hidden md:block transition hover:scale-110">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                        </path>
+                    </svg>
+                </button>
+                <button onclick="nextTestimoni()"
+                    class="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg border border-gray-100 hidden md:block transition hover:scale-110">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+
+                <!-- Track -->
+                <div class="overflow-hidden">
+                    <div id="testimoni-track" class="flex transition-transform duration-500 ease-in-out">
+
+                        <!-- Testimoni 1 -->
+                        <div class="testimoni-card-wrapper w-full md:w-1/2 flex-shrink-0 p-3">
+                            <div
+                                class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?fit=crop&w=150&h=150"
+                                        alt="H. Ahmad"
+                                        class="w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-white shadow-sm">
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-sm">H. Ahmad Fauzi</h4>
+                                        <p class="text-xs text-gray-500">Alumni Manasik 2024</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-yellow-400 mb-3 text-xs">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <p class="text-sm text-gray-600 italic leading-relaxed">
+                                    "Bimbingan manasiknya sangat detail, dari teori sampai praktek. Ust. Haidi
+                                    menjelaskan rukun dan wajib haji dengan sangat jelas sehingga saya merasa tenang dan
+                                    siap sebelum berangkat. Sangat direkomendasikan."
+                                </p>
+                                <div class="mt-auto pt-4">
+                                    <span
+                                        class="inline-block bg-green-100 text-kbihu text-[10px] font-bold px-2 py-0.5 rounded uppercase">Manasik
+                                        Haji</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimoni 2 -->
+                        <div class="testimoni-card-wrapper w-full md:w-1/2 flex-shrink-0 p-3">
+                            <div
+                                class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=150&h=150"
+                                        alt="Hj. Siti"
+                                        class="w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-white shadow-sm">
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-sm">Hj. Siti Aminah</h4>
+                                        <p class="text-xs text-gray-500">Haji Reguler 2023</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-yellow-400 mb-3 text-xs">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <p class="text-sm text-gray-600 italic leading-relaxed">
+                                    "Alhamdulillah, pelaksanaan ibadah haji berjalan lancar. Pembimbing selalu
+                                    mendampingi saat di Arafah, Muzdalifah, dan Mina. Kami dibimbing agar ibadah sah dan
+                                    sesuai sunnah. Terima kasih Al-Kautsar."
+                                </p>
+                                <div class="mt-auto pt-4">
+                                    <span
+                                        class="inline-block bg-gold text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Ibadah
+                                        Haji</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimoni 3 -->
+                        <div class="testimoni-card-wrapper w-full md:w-1/2 flex-shrink-0 p-3">
+                            <div
+                                class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?fit=crop&w=150&h=150"
+                                        alt="Bpk. Rahmat"
+                                        class="w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-white shadow-sm">
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-sm">Rahmat Hidayat</h4>
+                                        <p class="text-xs text-gray-500">Umrah Awal Ramadhan</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-yellow-400 mb-3 text-xs">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <p class="text-sm text-gray-600 italic leading-relaxed">
+                                    "Fasilitas hotelnya sangat dekat dengan masjid, sesuai janji. Muthowwif-nya ramah
+                                    dan cekatan mengurus jamaah lansia. Perjalanan umrah kami jadi sangat berkesan dan
+                                    nyaman."
+                                </p>
+                                <div class="mt-auto pt-4">
+                                    <span
+                                        class="inline-block bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Umrah
+                                        & Travel</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimoni 4 -->
+                        <div class="testimoni-card-wrapper w-full md:w-1/2 flex-shrink-0 p-3">
+                            <div
+                                class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?fit=crop&w=150&h=150"
+                                        alt="Ibu Ratna"
+                                        class="w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-white shadow-sm">
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-sm">Ibu Ratna Sari</h4>
+                                        <p class="text-xs text-gray-500">Halal Tour Turki</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-yellow-400 mb-3 text-xs">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <p class="text-sm text-gray-600 italic leading-relaxed">
+                                    "Liburan sambil mentadabburi sejarah Islam di Turki bersama mitra Al-Kautsar sungguh
+                                    luar biasa. Makanan halal terjamin dan waktu sholat selalu dijaga. Travelnya
+                                    amanah."
+                                </p>
+                                <div class="mt-auto pt-4">
+                                    <span
+                                        class="inline-block bg-purple-100 text-purple-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Wisata
+                                        Halal</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimoni 5 (New) -->
+                        <div class="testimoni-card-wrapper w-full md:w-1/2 flex-shrink-0 p-3">
+                            <div
+                                class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?fit=crop&w=150&h=150"
+                                        alt="Bpk. H. Supriyadi"
+                                        class="w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-white shadow-sm">
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-sm">Bpk. H. Supriyadi</h4>
+                                        <p class="text-xs text-gray-500">Layanan Badal Haji</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-yellow-400 mb-3 text-xs">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <p class="text-sm text-gray-600 italic leading-relaxed">
+                                    "Mengamanahkan badal haji untuk Almarhum Ayah kepada KBIHU Al-Kautsar membuat hati
+                                    lega. Sertifikat dan dokumentasi lengkap, pelaksananya pun jelas ustaz yang bermukim
+                                    di sana."
+                                </p>
+                                <div class="mt-auto pt-4">
+                                    <span
+                                        class="inline-block bg-green-100 text-kbihu text-[10px] font-bold px-2 py-0.5 rounded uppercase">Badal
+                                        Haji</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimoni 6 (New) -->
+                        <div class="testimoni-card-wrapper w-full md:w-1/2 flex-shrink-0 p-3">
+                            <div
+                                class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://images.unsplash.com/photo-1628046890457-41db45701d4a?fit=crop&w=150&h=150"
+                                        alt="Ibu Lilis Suryani"
+                                        class="w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-white shadow-sm">
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-sm">Ibu Lilis Suryani</h4>
+                                        <p class="text-xs text-gray-500">Umrah Plus Aqsa 2024</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-yellow-400 mb-3 text-xs">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <p class="text-sm text-gray-600 italic leading-relaxed">
+                                    "Terharu bisa sujud di Masjidil Aqsa. Perjalanannya aman, guide-nya berwawasan luas.
+                                    Meski rutenya cukup panjang, tapi semua terorganisir dengan sangat baik."
+                                </p>
+                                <div class="mt-auto pt-4">
+                                    <span
+                                        class="inline-block bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Umrah
+                                        Plus</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimoni 7 (New) -->
+                        <div class="testimoni-card-wrapper w-full md:w-1/2 flex-shrink-0 p-3">
+                            <div
+                                class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://images.unsplash.com/photo-1542596594-649edbc13630?fit=crop&w=150&h=150"
+                                        alt="Kel. Bpk. Wijaya"
+                                        class="w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-white shadow-sm">
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-sm">Kel. Bpk. Wijaya</h4>
+                                        <p class="text-xs text-gray-500">Group Privat Keluarga</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-yellow-400 mb-3 text-xs">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <p class="text-sm text-gray-600 italic leading-relaxed">
+                                    "Merancang paket private untuk keluarga besar sangat mudah. Tim KBIHU sangat
+                                    akomodatif menyesuaikan jadwal dan hotel sesuai budget dan keinginan kami."
+                                </p>
+                                <div class="mt-auto pt-4">
+                                    <span
+                                        class="inline-block bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Private
+                                        Tour</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimoni 8 (New) -->
+                        <div class="testimoni-card-wrapper w-full md:w-1/2 flex-shrink-0 p-3">
+                            <div
+                                class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://images.unsplash.com/photo-1583852589574-d4df558c42a5?fit=crop&w=150&h=150"
+                                        alt="Ust. Rizki Pratama"
+                                        class="w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-white shadow-sm">
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-sm">Ust. Rizki Pratama</h4>
+                                        <p class="text-xs text-gray-500">Mitra Tour Leader</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-yellow-400 mb-3 text-xs">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <p class="text-sm text-gray-600 italic leading-relaxed">
+                                    "Bekerjasama dengan KBIHU Al-Kautsar selalu menyenangkan. Jamaahnya disiplin dan
+                                    teredukasi baik soal manasik, sehingga kami di lapangan sangat terbantu."
+                                </p>
+                                <div class="mt-auto pt-4">
+                                    <span
+                                        class="inline-block bg-teal-100 text-teal-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Partnership</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Indicators -->
+                <div class="flex justify-center mt-6 space-x-2">
+                    <!-- Dynamic indicators can be added here if needed, but keeping it simple for now -->
+                    <span class="w-2 h-2 bg-kbihu rounded-full opacity-100"></span>
+                    <span class="w-2 h-2 bg-kbihu rounded-full opacity-50"></span>
+                    <span class="w-2 h-2 bg-kbihu rounded-full opacity-50"></span>
+                    <span class="w-2 h-2 bg-kbihu rounded-full opacity-50"></span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -932,6 +1623,66 @@
             window.open(url, '_blank');
             toggleForm();
         }
+
+        // --- TESTIMONI SLIDER LOGIC ---
+        const track = document.getElementById('testimoni-track');
+        let currentIndex = 0;
+        const totalSlides = 8; // Total testimonial cards
+        let autoScrollInterval;
+
+        // Determine how many items are visible (1 for mobile, 2 for desktop)
+        function getItemsPerView() {
+            return window.innerWidth >= 768 ? 2 : 1;
+        }
+
+        function updateCarousel() {
+            const itemsPerView = getItemsPerView();
+            const widthPerItem = 100 / itemsPerView;
+            track.style.transform = `translateX(-${currentIndex * widthPerItem}%)`;
+        }
+
+        function nextTestimoni() {
+            const itemsPerView = getItemsPerView();
+            // Calculate max index so we don't scroll past empty space
+            // E.g., if we show 2 items, max index starts at totalSlides - itemsPerView
+            // But for infinite loop feeling, let's just reset to 0
+            if (currentIndex >= totalSlides - itemsPerView) {
+                currentIndex = 0;
+            } else {
+                currentIndex++;
+            }
+            updateCarousel();
+        }
+
+        function prevTestimoni() {
+            const itemsPerView = getItemsPerView();
+            if (currentIndex <= 0) {
+                currentIndex = totalSlides - itemsPerView;
+            } else {
+                currentIndex--;
+            }
+            updateCarousel();
+        }
+
+        // Auto Scroll Feature
+        function startCarousel() {
+            autoScrollInterval = setInterval(nextTestimoni, 4000); // 4 seconds
+        }
+
+        function pauseCarousel() {
+            clearInterval(autoScrollInterval);
+        }
+
+        function resumeCarousel() {
+            startCarousel();
+        }
+
+        // Initial setup
+        startCarousel();
+        // Update on resize to fix width calculation
+        window.addEventListener('resize', updateCarousel);
+
+        // --- END SLIDER LOGIC ---
 
         // Modal Logic
         function closePackageModal() {
