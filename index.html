@@ -5,6 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KBIHU Al-Kautsar - Bimbingan Haji & Umroh</title>
+
+    <!-- META TAGS UNTUK SHARING & SEO -->
+    <meta name="description"
+        content="Membimbing jamaah menuju kemabruran dengan ilmu dan khidmat, di bawah pimpinan Ust. H. M. Haidi Arif.">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kbihualkautsar.com/">
+    <meta property="og:title" content="KBIHU Al-Kautsar - Bimbingan Haji & Umroh">
+    <meta property="og:description"
+        content="Membimbing jamaah menuju kemabruran dengan ilmu dan khidmat, di bawah pimpinan Ust. H. M. Haidi Arif.">
+    <!-- Gambar Preview saat share (Menggunakan gambar Hero Section) -->
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1542521148-51306e7ffc1e?q=80&w=1674&auto=format&fit=crop">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kbihualkautsar.com/">
+    <meta property="twitter:title" content="KBIHU Al-Kautsar - Bimbingan Haji & Umroh">
+    <meta property="twitter:description"
+        content="Membimbing jamaah menuju kemabruran dengan ilmu dan khidmat, di bawah pimpinan Ust. H. M. Haidi Arif.">
+    <meta property="twitter:image"
+        content="https://images.unsplash.com/photo-1542521148-51306e7ffc1e?q=80&w=1674&auto=format&fit=crop">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Fonts -->
@@ -830,8 +854,8 @@
         </div>
     </section>
 
-    <!-- SECTION TESTIMONI (UPDATED CAROUSEL) -->
-    <section id="testimoni" class="py-16 bg-white border-t border-gray-100 relative overflow-hidden">
+    <!-- SECTION TESTIMONI -->
+    <section id="testimoni" class="py-16 bg-white border-t border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <span
@@ -843,458 +867,203 @@
                 </p>
             </div>
 
-            <!-- Carousel Wrapper -->
-            <div class="relative group" onmouseenter="pauseCarousel()" onmouseleave="resumeCarousel()">
-
-                <!-- Navigation Buttons -->
-                <button onclick="prevTestimoni()"
-                    class="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg border border-gray-100 hidden md:block transition hover:scale-110">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
-                        </path>
-                    </svg>
-                </button>
-                <button onclick="nextTestimoni()"
-                    class="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg border border-gray-100 hidden md:block transition hover:scale-110">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </button>
-
-                <!-- Track -->
-                <div class="overflow-hidden">
-                    <div id="testimoni-track" class="flex transition-transform duration-500 ease-in-out">
-
-                        <!-- Testimoni 1 -->
-                        <div class="testimoni-card-wrapper w-full md:w-1/2 flex-shrink-0 p-3">
-                            <div
-                                class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
-                                <div class="flex items-center mb-4">
-                                    <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?fit=crop&w=150&h=150"
-                                        alt="H. Ahmad"
-                                        class="w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-white shadow-sm">
-                                    <div>
-                                        <h4 class="font-bold text-gray-900 text-sm">H. Ahmad Fauzi</h4>
-                                        <p class="text-xs text-gray-500">Alumni Manasik 2024</p>
-                                    </div>
-                                </div>
-                                <div class="flex text-yellow-400 mb-3 text-xs">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <p class="text-sm text-gray-600 italic leading-relaxed">
-                                    "Bimbingan manasiknya sangat detail, dari teori sampai praktek. Ust. Haidi
-                                    menjelaskan rukun dan wajib haji dengan sangat jelas sehingga saya merasa tenang dan
-                                    siap sebelum berangkat. Sangat direkomendasikan."
-                                </p>
-                                <div class="mt-auto pt-4">
-                                    <span
-                                        class="inline-block bg-green-100 text-kbihu text-[10px] font-bold px-2 py-0.5 rounded uppercase">Manasik
-                                        Haji</span>
-                                </div>
-                            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Testimoni 1: Manasik Haji -->
+                <div
+                    class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=150&h=150"
+                            alt="H. Ahmad" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">H. Ahmad Fauzi</h4>
+                            <p class="text-xs text-gray-500">Alumni Manasik 2024</p>
                         </div>
-
-                        <!-- Testimoni 2 -->
-                        <div class="testimoni-card-wrapper w-full md:w-1/2 flex-shrink-0 p-3">
-                            <div
-                                class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
-                                <div class="flex items-center mb-4">
-                                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=150&h=150"
-                                        alt="Hj. Siti"
-                                        class="w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-white shadow-sm">
-                                    <div>
-                                        <h4 class="font-bold text-gray-900 text-sm">Hj. Siti Aminah</h4>
-                                        <p class="text-xs text-gray-500">Haji Reguler 2023</p>
-                                    </div>
-                                </div>
-                                <div class="flex text-yellow-400 mb-3 text-xs">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <p class="text-sm text-gray-600 italic leading-relaxed">
-                                    "Alhamdulillah, pelaksanaan ibadah haji berjalan lancar. Pembimbing selalu
-                                    mendampingi saat di Arafah, Muzdalifah, dan Mina. Kami dibimbing agar ibadah sah dan
-                                    sesuai sunnah. Terima kasih Al-Kautsar."
-                                </p>
-                                <div class="mt-auto pt-4">
-                                    <span
-                                        class="inline-block bg-gold text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Ibadah
-                                        Haji</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimoni 3 -->
-                        <div class="testimoni-card-wrapper w-full md:w-1/2 flex-shrink-0 p-3">
-                            <div
-                                class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
-                                <div class="flex items-center mb-4">
-                                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?fit=crop&w=150&h=150"
-                                        alt="Bpk. Rahmat"
-                                        class="w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-white shadow-sm">
-                                    <div>
-                                        <h4 class="font-bold text-gray-900 text-sm">Rahmat Hidayat</h4>
-                                        <p class="text-xs text-gray-500">Umrah Awal Ramadhan</p>
-                                    </div>
-                                </div>
-                                <div class="flex text-yellow-400 mb-3 text-xs">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <p class="text-sm text-gray-600 italic leading-relaxed">
-                                    "Fasilitas hotelnya sangat dekat dengan masjid, sesuai janji. Muthowwif-nya ramah
-                                    dan cekatan mengurus jamaah lansia. Perjalanan umrah kami jadi sangat berkesan dan
-                                    nyaman."
-                                </p>
-                                <div class="mt-auto pt-4">
-                                    <span
-                                        class="inline-block bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Umrah
-                                        & Travel</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimoni 4 -->
-                        <div class="testimoni-card-wrapper w-full md:w-1/2 flex-shrink-0 p-3">
-                            <div
-                                class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
-                                <div class="flex items-center mb-4">
-                                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?fit=crop&w=150&h=150"
-                                        alt="Ibu Ratna"
-                                        class="w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-white shadow-sm">
-                                    <div>
-                                        <h4 class="font-bold text-gray-900 text-sm">Ibu Ratna Sari</h4>
-                                        <p class="text-xs text-gray-500">Halal Tour Turki</p>
-                                    </div>
-                                </div>
-                                <div class="flex text-yellow-400 mb-3 text-xs">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <p class="text-sm text-gray-600 italic leading-relaxed">
-                                    "Liburan sambil mentadabburi sejarah Islam di Turki bersama mitra Al-Kautsar sungguh
-                                    luar biasa. Makanan halal terjamin dan waktu sholat selalu dijaga. Travelnya
-                                    amanah."
-                                </p>
-                                <div class="mt-auto pt-4">
-                                    <span
-                                        class="inline-block bg-purple-100 text-purple-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Wisata
-                                        Halal</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimoni 5 (New) -->
-                        <div class="testimoni-card-wrapper w-full md:w-1/2 flex-shrink-0 p-3">
-                            <div
-                                class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
-                                <div class="flex items-center mb-4">
-                                    <img src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?fit=crop&w=150&h=150"
-                                        alt="Bpk. H. Supriyadi"
-                                        class="w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-white shadow-sm">
-                                    <div>
-                                        <h4 class="font-bold text-gray-900 text-sm">Bpk. H. Supriyadi</h4>
-                                        <p class="text-xs text-gray-500">Layanan Badal Haji</p>
-                                    </div>
-                                </div>
-                                <div class="flex text-yellow-400 mb-3 text-xs">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <p class="text-sm text-gray-600 italic leading-relaxed">
-                                    "Mengamanahkan badal haji untuk Almarhum Ayah kepada KBIHU Al-Kautsar membuat hati
-                                    lega. Sertifikat dan dokumentasi lengkap, pelaksananya pun jelas ustaz yang bermukim
-                                    di sana."
-                                </p>
-                                <div class="mt-auto pt-4">
-                                    <span
-                                        class="inline-block bg-green-100 text-kbihu text-[10px] font-bold px-2 py-0.5 rounded uppercase">Badal
-                                        Haji</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimoni 6 (New) -->
-                        <div class="testimoni-card-wrapper w-full md:w-1/2 flex-shrink-0 p-3">
-                            <div
-                                class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
-                                <div class="flex items-center mb-4">
-                                    <img src="https://images.unsplash.com/photo-1628046890457-41db45701d4a?fit=crop&w=150&h=150"
-                                        alt="Ibu Lilis Suryani"
-                                        class="w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-white shadow-sm">
-                                    <div>
-                                        <h4 class="font-bold text-gray-900 text-sm">Ibu Lilis Suryani</h4>
-                                        <p class="text-xs text-gray-500">Umrah Plus Aqsa 2024</p>
-                                    </div>
-                                </div>
-                                <div class="flex text-yellow-400 mb-3 text-xs">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <p class="text-sm text-gray-600 italic leading-relaxed">
-                                    "Terharu bisa sujud di Masjidil Aqsa. Perjalanannya aman, guide-nya berwawasan luas.
-                                    Meski rutenya cukup panjang, tapi semua terorganisir dengan sangat baik."
-                                </p>
-                                <div class="mt-auto pt-4">
-                                    <span
-                                        class="inline-block bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Umrah
-                                        Plus</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimoni 7 (New) -->
-                        <div class="testimoni-card-wrapper w-full md:w-1/2 flex-shrink-0 p-3">
-                            <div
-                                class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
-                                <div class="flex items-center mb-4">
-                                    <img src="https://images.unsplash.com/photo-1542596594-649edbc13630?fit=crop&w=150&h=150"
-                                        alt="Kel. Bpk. Wijaya"
-                                        class="w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-white shadow-sm">
-                                    <div>
-                                        <h4 class="font-bold text-gray-900 text-sm">Kel. Bpk. Wijaya</h4>
-                                        <p class="text-xs text-gray-500">Group Privat Keluarga</p>
-                                    </div>
-                                </div>
-                                <div class="flex text-yellow-400 mb-3 text-xs">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <p class="text-sm text-gray-600 italic leading-relaxed">
-                                    "Merancang paket private untuk keluarga besar sangat mudah. Tim KBIHU sangat
-                                    akomodatif menyesuaikan jadwal dan hotel sesuai budget dan keinginan kami."
-                                </p>
-                                <div class="mt-auto pt-4">
-                                    <span
-                                        class="inline-block bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Private
-                                        Tour</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimoni 8 (New) -->
-                        <div class="testimoni-card-wrapper w-full md:w-1/2 flex-shrink-0 p-3">
-                            <div
-                                class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
-                                <div class="flex items-center mb-4">
-                                    <img src="https://images.unsplash.com/photo-1583852589574-d4df558c42a5?fit=crop&w=150&h=150"
-                                        alt="Ust. Rizki Pratama"
-                                        class="w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-white shadow-sm">
-                                    <div>
-                                        <h4 class="font-bold text-gray-900 text-sm">Ust. Rizki Pratama</h4>
-                                        <p class="text-xs text-gray-500">Mitra Tour Leader</p>
-                                    </div>
-                                </div>
-                                <div class="flex text-yellow-400 mb-3 text-xs">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <p class="text-sm text-gray-600 italic leading-relaxed">
-                                    "Bekerjasama dengan KBIHU Al-Kautsar selalu menyenangkan. Jamaahnya disiplin dan
-                                    teredukasi baik soal manasik, sehingga kami di lapangan sangat terbantu."
-                                </p>
-                                <div class="mt-auto pt-4">
-                                    <span
-                                        class="inline-block bg-teal-100 text-teal-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Partnership</span>
-                                </div>
-                            </div>
-                        </div>
-
+                    </div>
+                    <div class="flex text-yellow-400 mb-3 text-xs">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                    </div>
+                    <p class="text-sm text-gray-600 italic leading-relaxed">
+                        "Bimbingan manasiknya sangat detail, dari teori sampai praktek. Ust. Haidi menjelaskan rukun dan
+                        wajib haji dengan sangat jelas sehingga saya merasa tenang dan siap sebelum berangkat. Sangat
+                        direkomendasikan."
+                    </p>
+                    <div class="mt-auto pt-4">
+                        <span
+                            class="inline-block bg-green-100 text-kbihu text-[10px] font-bold px-2 py-0.5 rounded uppercase">Manasik
+                            Haji</span>
                     </div>
                 </div>
 
-                <!-- Indicators -->
-                <div class="flex justify-center mt-6 space-x-2">
-                    <!-- Dynamic indicators can be added here if needed, but keeping it simple for now -->
-                    <span class="w-2 h-2 bg-kbihu rounded-full opacity-100"></span>
-                    <span class="w-2 h-2 bg-kbihu rounded-full opacity-50"></span>
-                    <span class="w-2 h-2 bg-kbihu rounded-full opacity-50"></span>
-                    <span class="w-2 h-2 bg-kbihu rounded-full opacity-50"></span>
+                <!-- Testimoni 2: Pelaksanaan Haji -->
+                <div
+                    class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=150&h=150"
+                            alt="Hj. Siti" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">Hj. Siti Aminah</h4>
+                            <p class="text-xs text-gray-500">Haji Reguler 2023</p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-3 text-xs">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                    </div>
+                    <p class="text-sm text-gray-600 italic leading-relaxed">
+                        "Alhamdulillah, pelaksanaan ibadah haji berjalan lancar. Pembimbing selalu mendampingi saat di
+                        Arafah, Muzdalifah, dan Mina. Kami dibimbing agar ibadah sah dan sesuai sunnah. Terima kasih
+                        Al-Kautsar."
+                    </p>
+                    <div class="mt-auto pt-4">
+                        <span
+                            class="inline-block bg-gold text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Ibadah
+                            Haji</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 3: Perjalanan Umrah -->
+                <div
+                    class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?fit=crop&w=150&h=150"
+                            alt="Bpk. Rahmat" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">Rahmat Hidayat</h4>
+                            <p class="text-xs text-gray-500">Umrah Awal Ramadhan</p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-3 text-xs">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                    </div>
+                    <p class="text-sm text-gray-600 italic leading-relaxed">
+                        "Fasilitas hotelnya sangat dekat dengan masjid, sesuai janji. Muthowwif-nya ramah dan cekatan
+                        mengurus jamaah lansia. Perjalanan umrah kami jadi sangat berkesan dan nyaman."
+                    </p>
+                    <div class="mt-auto pt-4">
+                        <span
+                            class="inline-block bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Umrah
+                            & Travel</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 4: Wisata Halal -->
+                <div
+                    class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition border border-gray-100 flex flex-col h-full">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?fit=crop&w=150&h=150"
+                            alt="Ibu Ratna" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">Ibu Ratna Sari</h4>
+                            <p class="text-xs text-gray-500">Halal Tour Turki</p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-3 text-xs">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                    </div>
+                    <p class="text-sm text-gray-600 italic leading-relaxed">
+                        "Liburan sambil mentadabburi sejarah Islam di Turki bersama mitra Al-Kautsar sungguh luar biasa.
+                        Makanan halal terjamin dan waktu sholat selalu dijaga. Travelnya amanah."
+                    </p>
+                    <div class="mt-auto pt-4">
+                        <span
+                            class="inline-block bg-purple-100 text-purple-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Wisata
+                            Halal</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1623,66 +1392,6 @@
             window.open(url, '_blank');
             toggleForm();
         }
-
-        // --- TESTIMONI SLIDER LOGIC ---
-        const track = document.getElementById('testimoni-track');
-        let currentIndex = 0;
-        const totalSlides = 8; // Total testimonial cards
-        let autoScrollInterval;
-
-        // Determine how many items are visible (1 for mobile, 2 for desktop)
-        function getItemsPerView() {
-            return window.innerWidth >= 768 ? 2 : 1;
-        }
-
-        function updateCarousel() {
-            const itemsPerView = getItemsPerView();
-            const widthPerItem = 100 / itemsPerView;
-            track.style.transform = `translateX(-${currentIndex * widthPerItem}%)`;
-        }
-
-        function nextTestimoni() {
-            const itemsPerView = getItemsPerView();
-            // Calculate max index so we don't scroll past empty space
-            // E.g., if we show 2 items, max index starts at totalSlides - itemsPerView
-            // But for infinite loop feeling, let's just reset to 0
-            if (currentIndex >= totalSlides - itemsPerView) {
-                currentIndex = 0;
-            } else {
-                currentIndex++;
-            }
-            updateCarousel();
-        }
-
-        function prevTestimoni() {
-            const itemsPerView = getItemsPerView();
-            if (currentIndex <= 0) {
-                currentIndex = totalSlides - itemsPerView;
-            } else {
-                currentIndex--;
-            }
-            updateCarousel();
-        }
-
-        // Auto Scroll Feature
-        function startCarousel() {
-            autoScrollInterval = setInterval(nextTestimoni, 4000); // 4 seconds
-        }
-
-        function pauseCarousel() {
-            clearInterval(autoScrollInterval);
-        }
-
-        function resumeCarousel() {
-            startCarousel();
-        }
-
-        // Initial setup
-        startCarousel();
-        // Update on resize to fix width calculation
-        window.addEventListener('resize', updateCarousel);
-
-        // --- END SLIDER LOGIC ---
 
         // Modal Logic
         function closePackageModal() {
